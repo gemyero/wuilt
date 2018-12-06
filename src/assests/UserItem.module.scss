@@ -1,0 +1,17 @@
+.item {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  a {
+    text-decoration: none;
+    color: #326ada;
+  }
+  a:hover {
+    color: #433e90;
+  }
+  img {
+    border-radius: 50%;
+    width: 15rem;
+  }
+}
