@@ -11,7 +11,9 @@ function UserList(props) {
       <h1>Users List</h1>
       {props.users.map(user => <UserItem key={user.id} user={user} />)}
       <div style={{textAlign: 'center'}}>
-        <button className={styles['loadmore-button']} onClick={props.handleLoadMore}>Load more</button>
+        <button className={styles['loadmore-button']} onClick={props.handleLoadMore}>
+          {props.buttonLoading ? 'Loading...' : 'Load more'}
+        </button>
       </div>
     </div>
   );

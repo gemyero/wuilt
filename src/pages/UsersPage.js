@@ -13,7 +13,8 @@ class UsersPage extends Component {
     super(props);
     this.state = {
       users: [],
-      isLoading: true
+      isLoading: true,
+      buttonLoading: false
     };
     this.handleLoadMore = this.handleLoadMore.bind(this);
   }
@@ -35,7 +36,7 @@ class UsersPage extends Component {
 
   handleLoadMore() {
     this.setState({
-      isLoading: true,
+      buttonLoading: true,
     })
     fetchMoreUsers(5, this.state.users[this.state.users.length - 1].id)
       .then(users => {
@@ -45,7 +46,7 @@ class UsersPage extends Component {
             ...state.users,
             ...users
           ],
-          isLoading: false,
+          buttonLoading: false,
         }));
       });
   }
@@ -59,7 +60,7 @@ class UsersPage extends Component {
             ? <Loading />
             : (
               <div style={{ display: 'flex', marginTop: '1rem' }}>
-                <UsersList users={this.state.users} handleLoadMore={this.handleLoadMore} />
+                <UsersList users={this.state.users} handleLoadMore={this.handleLoadMore} buttonLoading={this.state.buttonLoading} />
                 <Route path={`${this.props.match.path}/:userId`} component={UserInfo} exact={true} />
               </div>
             )
