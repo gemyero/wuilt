@@ -40,7 +40,7 @@ class UsersPage extends Component {
     this.setState({
       buttonLoading: true,
     })
-    fetchMoreUsers(5, this.state.users[this.state.users.length - 1].id)
+    fetchMoreUsers(10, this.state.users[this.state.users.length - 1].id)
       .then(users => {
         this.setState(state => ({
           ...state,
