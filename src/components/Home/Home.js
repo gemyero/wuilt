@@ -1,11 +1,34 @@
-import React, { Component } from 'react'
+import React from 'react';
+import axios from 'axios';
 
-export default class Home extends Component {
+import styles from '../../assests/Home.module.scss';
+
+import Loading from '../Loading/Loading';
+
+class Home extends React.Component {
+  state = {
+    isLoading: true,
+    zen: ''
+  }
+
+  componentDidMount = () => {
+    axios.get('https://api.github.com/zen').then(result => this.setState({
+      isLoading: false,
+      zen: result.data
+    }));
+  }
+
   render() {
     return (
-      <div>
-        <h1>Home</h1>
+      <div className={styles.home}>
+        {
+          this.state.isLoading
+            ? <Loading />
+            : <h1>{this.state.zen}</h1>
+        }
       </div>
-    )
+    );
   }
 }
+
+export default Home;
