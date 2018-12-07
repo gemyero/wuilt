@@ -1,0 +1,34 @@
+.title {
+  text-align: center;
+  color: #433e90;
+  font-size: 3rem;
+  margin: 2rem 0;
+}
+
+.user-image {
+  text-align: center;
+  img {
+    border: 1rem solid rgba(67,62,144, 0.1);
+    width: 55rem;
+    height: 55rem;
+  }
+}
+
+.user-info-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10rem;
+}
+
+.user-info {
+  p, i {
+    color: #326ada;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  i {
+    color: #433e90;
+  }
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet';
+
 import { fetchUsers, fetchMoreUsers } from '../utils/api/users-api';
 
 import UsersList from '../components/UsersList/UsersList';
@@ -29,7 +31,7 @@ class UsersPage extends Component {
         ],
         isLoading: false
       }), () => {
-        this.props.history.push(`/users/${this.state.users[0].id}`);
+        this.props.history.push(`/users/${this.state.users[0].login}`);
       });
     });
   }
@@ -54,14 +56,17 @@ class UsersPage extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>Users</title>
+        </Helmet>
         <Header />
         {
           this.state.isLoading
             ? <Loading />
             : (
-              <div style={{ display: 'flex', marginTop: '1rem' }}>
+              <div style={{ display: 'flex' }}>
                 <UsersList users={this.state.users} handleLoadMore={this.handleLoadMore} buttonLoading={this.state.buttonLoading} />
-                <Route path={`${this.props.match.path}/:userId`} component={UserInfo} exact={true} />
+                <Route path={`${this.props.match.path}/:login`} component={UserInfo} exact={true} />
               </div>
             )
         }

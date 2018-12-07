@@ -1,15 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Home from '../components/Home/Home';
 import Header from '../components/Header/Header';
 
-export default class HomePage extends Component {
-  render() {
+function HomePage() {
     return (
       <div>
+        <Helmet>
+          <title>Home</title>
+        </Helmet>
         <Header />
-        <Home />        
+        <Home />
       </div>
     )
-  }
-}
+};
+
+export default HomePage;

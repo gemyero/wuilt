@@ -20,9 +20,9 @@ function UserItem(props) {
       </div>
       <div style={{ flexGrow: 1 }}>
         <h1>
-          <Link title="login" to={`/users/${props.user.id}`} >{props.user.login}</Link>
+          <Link title="login" to={`/users/${props.user.login}`} >{props.user.login}</Link>
           <br />
-          <Link title="id" to={`/users/${props.user.id}`}>{props.user.id}</Link>
+          <Link title="id" to={`/users/${props.user.login}`}>{props.user.id}</Link>
         </h1>
       </div>
     </div>
