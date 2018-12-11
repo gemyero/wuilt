@@ -31,7 +31,10 @@ class UsersPage extends Component {
         ],
         isLoading: false
       }), () => {
-        this.props.history.push(`/users/${this.state.users[0].login}`);
+        const { path, isExact } = this.props.match;
+        if (path === '/users' && isExact) {
+          this.props.history.push(`/users/${this.state.users[0].login}`);
+        }
       });
     });
   }
